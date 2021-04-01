@@ -1,20 +1,17 @@
-package com.example.fruitsbasket
+package com.example.fruitsbasket.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import android.widget.Toast
 import androidx.navigation.findNavController
+import com.example.fruitsbasket.R
+import com.example.fruitsbasket.viewmodel.RecyclerViewModel
 
 class ListFragment : Fragment() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -25,15 +22,21 @@ class ListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Generate the recycler items
-        val charData = DataSource().getCharInfo()
+        // Instantiate view model
+        val viewModel = ViewModelProvider(requireActivity()).get(RecyclerViewModel::class.java)
+
+        val charData = viewModel.getData()
+
+        // Get view, create adapter (populate items) and add controler
         val recyclerView: RecyclerView = view.findViewById(R.id.recycler)
         val adapter = CharAdapter(charData)
 
         // Use the declared function from the adapter but redefine what happens in it!
         adapter.onItemClick = {
+
+            // Update the LiveData with the character
+            viewModel.setChosenChar(it)
             view.findNavController().navigate(R.id.action_listFragment_to_detailFragment)
-            Toast.makeText(context,it.name,Toast.LENGTH_SHORT).show()
         }
 
         recyclerView.adapter = adapter

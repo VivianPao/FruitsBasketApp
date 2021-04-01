@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailFragment">
+    tools:context=".view.DetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,16 +15,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Character Name"
-            android:padding="@dimen/elementPadding"
+            android:paddingTop="@dimen/element_padding"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/detail_title"/>
 
         <ImageView
             android:id="@+id/detailImg"
-            android:padding="@dimen/elementPadding"
+            android:paddingTop="@dimen/element_padding"
+            android:paddingHorizontal="@dimen/element_padding"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/img_height"
             android:src="@drawable/arrow_right"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,13 +34,14 @@
 
         <TextView
             android:id="@+id/detailDesc"
-            android:padding="@dimen/elementPadding"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="@dimen/element_padding"
             android:text="Character description!"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detailImg" />
+            app:layout_constraintTop_toBottomOf="@+id/detailImg"
+            style="@style/detail_paragraph"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

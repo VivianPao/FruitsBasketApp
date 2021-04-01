@@ -17,4 +17,12 @@
     <style name="paragraph">
         <item name="android:textSize">12sp</item>
     </style>
+    <style name="detail_title">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="detail_paragraph">
+        <item name="android:textSize">15sp</item>
+    </style>
+
 </resources>

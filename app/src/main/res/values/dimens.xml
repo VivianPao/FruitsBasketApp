@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="card_height">100dp</dimen>
-    <dimen name="elementPadding">50dp</dimen>
+    <dimen name="element_padding">20dp</dimen>
+    <dimen name="img_height">400dp</dimen>
 </resources>
